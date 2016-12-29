@@ -1,0 +1,14 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "Hello", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/Home/", 
+            "text": "Welcome to the markdown-rundown wiki!", 
+            "title": "Home"
+        }
+    ]
+}

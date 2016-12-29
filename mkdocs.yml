@@ -1,0 +1,57 @@
+# Project information
+site_name: Markdown Rundown
+site_description: Markdown Rundown
+site_author: Adam Twardoch
+site_url: https://twardoch.github.io/markdown-rundown/
+
+# Repository
+repo_name: markdown-rundown
+repo_url: https://github.com/twardoch/markdown-rundown
+
+# Copyright
+copyright: Copyright © 2017 by Adam Twardoch
+
+# Documentation and theme
+theme: cinder
+#theme_dir: ../../noto-mkdocs-theme/noto_mktheme/
+
+# Options
+extra:
+  version: 0.0.1
+  #logo: images/logo.png
+  github:
+    download_release: true
+  author:
+    github: twardoch
+    twitter: adamtwar
+
+docs_dir: wiki/
+site_dir: docs/
+use_directory_urls: true
+
+# Extensions
+markdown_extensions:
+  - codehilite:
+      css_class: 'code'
+  - pymdownx.betterem
+  - pymdownx.magiclink
+  - pymdownx.superfences
+  - pymdownx.headeranchor
+  - pymdownx.mark
+  - smarty
+  - attr_list
+  - footnotes
+  - admonition
+  - toc:
+      permalink: '#'
+  - markdown_include.include:
+      'base_path': 'wiki/'
+  - mdx_sections
+  - mdx_steroids.figcaption
+  - mdx_steroids.wikilink
+  - mdx_steroids.kbd
+
+# Page tree
+pages:
+- index.md
+- Home.md
