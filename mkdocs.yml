@@ -25,31 +25,96 @@ extra:
     github: twardoch
     twitter: adamtwar
 
-docs_dir: wiki/
-site_dir: docs/
+docs_dir: 'wiki/'
+site_dir: 'docs/'
 use_directory_urls: true
 
 # Extensions
 markdown_extensions:
-  - codehilite:
+    # INCLUDED BY DEFAULT: 
+    # - markdown.extensions.tables
+    # https://pythonhosted.org/Markdown/extensions/tables.html
+    # - markdown.extensions.fenced_code
+    # https://pythonhosted.org/Markdown/extensions/fenced_code_blocks.html
+    # - markdown.extensions.abbr
+    # https://pythonhosted.org/Markdown/extensions/abbreviations.html
+    # ```markdown
+    # The HTML specification is maintained by the W3C.
+    # 
+    # *[HTML]: Hyper Text Markup Language
+    # *[W3C]:  World Wide Web Consortium
+    # ```
+    # ```html
+    # <p>The <abbr title="Hyper Text Markup Language">HTML</abbr> specification 
+    # is maintained by the <abbr title="World Wide Web Consortium">W3C</abbr>.</p>
+    # ```
+  - markdown.extensions.abbr
+    # - markdown.extensions.attr_list
+    # https://pythonhosted.org/Markdown/extensions/attr_list.html
+    # ```markdown
+    # This is a paragraph.
+    # {: #an_id .a_class title="explain" }
+    # ```
+    # ```html
+    # <p id="an_id" class="a_class" title="explain">This is a paragraph.</p>
+    # ```
+  - markdown.extensions.attr_list
+    # - markdown.extensions.admonition
+    # ```markdown
+    # !!! important "Word of warning"
+    #     This is a admonition box.
+    # ```
+    # ```html
+    # <div class="admonition important">
+    # <p class="admonition-title">Word of warning</p>
+    # <p>This is a admonition box.</p>
+    # </div>
+    # ```
+  - markdown.extensions.admonition
+    # - markdown.extensions.codehilite:
+    # https://pythonhosted.org/Markdown/extensions/code_hilite.html
+  - markdown.extensions.codehilite:
       css_class: 'code'
-  - pymdownx.betterem
-  - pymdownx.magiclink
-  - pymdownx.superfences
-  - pymdownx.headeranchor
-  - pymdownx.mark
-  - smarty
-  - attr_list
-  - footnotes
-  - admonition
-  - toc:
+      linenums: None
+      guess_lang: true
+      use_pygments: true
+      pygments_style: 'default'
+    # - markdown.extensions.def_list
+    # https://pythonhosted.org/Markdown/extensions/definition_lists.html
+  - markdown.extensions.def_list
+    # - markdown.extensions.smarty
+    # 
+  - markdown.extensions.smarty
+    # - markdown.extensions.toc: 
+  - markdown.extensions.toc: 
       permalink: '#'
+    # - pymdownx.betterem
+  - pymdownx.betterem
+    # - pymdownx.headeranchor
+  - pymdownx.headeranchor
+    # - pymdownx.magiclink
+  - pymdownx.magiclink
+    # - pymdownx.mark
+  - pymdownx.mark
+    # - pymdownx.superfences
+  - pymdownx.superfences
+    # - pyembed.markdown
+  - pyembed.markdown
+    # - markdown_include.include:
   - markdown_include.include:
-      'base_path': 'wiki/'
+      base_path: 'wiki/'
+    # - mdx_sections
   - mdx_sections
+    # - mdx_steroids.figcaption
   - mdx_steroids.figcaption
+    # - mdx_steroids.wikilink
   - mdx_steroids.wikilink
+    # - mdx_steroids.kbd
   - mdx_steroids.kbd
+    # - mdx_steroids.replimgsrc:
+  - mdx_steroids.replimgsrc:
+      find: 'img/'
+      replace: 'img/'
 
 # Page tree
 pages:
