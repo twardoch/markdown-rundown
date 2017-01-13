@@ -96,7 +96,6 @@ markdown_extensions:
   outline:
   cite:
   collapse:
-  steroids.figcaption:
   steroids.wikilink:
   steroids.kbd:
     repl_mac       : false                # Replace macOS symbols

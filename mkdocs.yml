@@ -1,3 +1,8 @@
+# Page tree
+pages:
+- index.md
+- Extensions.md
+
 # Project information
 site_name: Markdown Rundown
 site_description: Markdown Rundown
@@ -12,111 +17,102 @@ repo_url: https://github.com/twardoch/markdown-rundown
 copyright: Copyright © 2017 by Adam Twardoch
 
 # Documentation and theme
-theme: cinder
-#theme_dir: ../../noto-mkdocs-theme/noto_mktheme/
+theme: material
+#theme_dir: mkthemes/material-extra/
+extra_css: []
+extra_templates: []
 
 # Options
 extra:
-  version: 0.0.1
-  #logo: images/logo.png
-  github:
-    download_release: true
-  author:
-    github: twardoch
-    twitter: adamtwar
+  version: 2017.01.12
+  palette:
+    primary: grey
+    accent: indigo
+  font:
+    text: PT Sans Caption
+    mono: Roboto Mono
+  social:
+    - type: github-alt
+      link: http://twardoch.github.io/markdown-rundown/
+    - type: adamtwar
+      link: https://twitter.com/adamtwar
 
 docs_dir: 'wiki/'
 site_dir: 'docs/'
 use_directory_urls: true
 
+site_favicon: null
+edit_uri: null
+
 # Extensions
 markdown_extensions:
-    # INCLUDED BY DEFAULT: 
-    # - markdown.extensions.tables
-    # https://pythonhosted.org/Markdown/extensions/tables.html
-    # - markdown.extensions.fenced_code
-    # https://pythonhosted.org/Markdown/extensions/fenced_code_blocks.html
-    # - markdown.extensions.abbr
-    # https://pythonhosted.org/Markdown/extensions/abbreviations.html
-    # ```markdown
-    # The HTML specification is maintained by the W3C.
-    # 
-    # *[HTML]: Hyper Text Markup Language
-    # *[W3C]:  World Wide Web Consortium
-    # ```
-    # ```html
-    # <p>The <abbr title="Hyper Text Markup Language">HTML</abbr> specification 
-    # is maintained by the <abbr title="World Wide Web Consortium">W3C</abbr>.</p>
-    # ```
-  - markdown.extensions.abbr
-    # - markdown.extensions.attr_list
-    # https://pythonhosted.org/Markdown/extensions/attr_list.html
-    # ```markdown
-    # This is a paragraph.
-    # {: #an_id .a_class title="explain" }
-    # ```
-    # ```html
-    # <p id="an_id" class="a_class" title="explain">This is a paragraph.</p>
-    # ```
-  - markdown.extensions.attr_list
-    # - markdown.extensions.admonition
-    # ```markdown
-    # !!! important "Word of warning"
-    #     This is a admonition box.
-    # ```
-    # ```html
-    # <div class="admonition important">
-    # <p class="admonition-title">Word of warning</p>
-    # <p>This is a admonition box.</p>
-    # </div>
-    # ```
-  - markdown.extensions.admonition
-    # - markdown.extensions.codehilite:
-    # https://pythonhosted.org/Markdown/extensions/code_hilite.html
-  - markdown.extensions.codehilite:
-      css_class: 'code'
-      linenums: None
-      guess_lang: true
-      use_pygments: true
-      pygments_style: 'default'
-    # - markdown.extensions.def_list
-    # https://pythonhosted.org/Markdown/extensions/definition_lists.html
-  - markdown.extensions.def_list
-    # - markdown.extensions.smarty
-    # 
-  - markdown.extensions.smarty
-    # - markdown.extensions.toc: 
-  - markdown.extensions.toc: 
-      permalink: '#'
-    # - pymdownx.betterem
-  - pymdownx.betterem
-    # - pymdownx.headeranchor
-  - pymdownx.headeranchor
-    # - pymdownx.magiclink
-  - pymdownx.magiclink
-    # - pymdownx.mark
-  - pymdownx.mark
-    # - pymdownx.superfences
-  - pymdownx.superfences
-    # - pyembed.markdown
-  - pyembed.markdown
-    # - markdown_include.include:
-  - markdown_include.include:
-      base_path: 'wiki/'
-    # - mdx_sections
-  - mdx_sections
-    # - mdx_steroids.figcaption
-  - mdx_steroids.figcaption
-    # - mdx_steroids.wikilink
-  - mdx_steroids.wikilink
-    # - mdx_steroids.kbd
-  - mdx_steroids.kbd
-    # - mdx_steroids.replimgsrc:
-  - mdx_steroids.replimgsrc:
-      find: 'img/'
-      replace: 'img/'
-
-# Page tree
-pages:
-- index.md
-- Home.md
+- tables
+- abbr
+- attr_list
+- admonition
+- codehilite:
+    css_class      : 'code'
+    linenums       : null
+    guess_lang     : true
+    use_pygments   : true
+    pygments_style : 'default'  
+- def_list
+- footnotes:
+    PLACE_MARKER   : '///Footnotes Go Here///' 
+    # if the place marker text is not found in the document, 
+    # the footnote definitions are placed at the end of the resulting HTML document
+    UNIQUE_IDS     : false
+    BACKLINK_TEXT  : '&#8617;'  
+- meta
+- nl2br
+- smarty:
+    smart_dashes           : true  # convert dashes
+    smart_quotes           : true  # convert straight quotes
+    smart_angled_quotes    : false # whether to convert angled quotes
+    smart_ellipses         : true  # whether to convert ellipses
+    substitutions:                 # overwrite default substitutions
+        left-single-quote  : '‘'   # '
+        right-single-quote : '’'   # '
+        left-double-quote  : '“'   # "
+        right-double-quote : '”'   # "
+        left-angle-quote   : '«'   # <<
+        right-angle-quote  : '»'   # >>
+        ellipsis           : '…'   # ...
+        ndash              : '–'   # --
+        mdash              : '—'   # ---
+- toc:
+    permalink      : '»'
+    marker         : '[TOC]'
+    title          : 'Table of Contents'
+    anchorlink     : false
+    baselevel      : 1
+    separator      : '-'
+- pymdownx.betterem:
+    smart_enable   : 'all'                # 'all' | 'asterisk' | 'underscore' | 'none'
+- pymdownx.magiclink:
+    hide_protocol  : true
+- pymdownx.mark:
+    smart_mark     : true                 # Allows for ==mark==me== 
+- pymdownx.superfences:
+    disable_indented_code_blocks : false
+    nested         : true
+    uml_flow       : false
+    uml_sequence   : false
+- pyembed.markdown
+- markdown_include.include:
+    base_path      : 'wiki/'
+    encoding       : 'utf-8'
+- sections
+- outline
+- cite
+- steroids.wikilink
+- steroids.kbd:
+    repl_mac       : true                # Replace macOS symbols
+    html_class     : 'kbd'                # CSS hook. Leave blank for none
+- steroids.replimgsrc: 
+    find           : 'https://github.com/Fontlab/FontLabVI-help/blob/master/images/'
+    replace        : '../img/'  
+- custom_span_class
+- figcap
+- fontawesome_markdown
+#- collapse # BUGGY
