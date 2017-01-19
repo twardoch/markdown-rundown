@@ -16,7 +16,7 @@ EOM
 # end of current workaround for homebrew bug
 
 PREFIX="$HOME/Library/Application Support/Sublime Text 3/Packages/OmniMarkupPreviewer/OmniMarkupLib/Renderers/libs"
-pip install --ignore-installed --upgrade --target="$PREFIX" -r ../requirements.txt
+pip install --ignore-installed --upgrade --target="$PREFIX" -r ../py-requirements.txt
 
 # current workaround for homebrew bug
 rm -rf $file
